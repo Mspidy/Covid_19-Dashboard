@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+<body class="p-3">
+     <h1>Covid-19 Global Data</h1>
+     <pre>{{globalsummary}}</pre>
+     <br>
+    <div class="container-fluid">
+        <div class="row" >
+            <div class="card col m-2">
+                    <div class="card-body">
+                        <h4 class="card-title">New Confirmed</h4>
+                        <p class="card-text">{{globalsummary.NewConfirmed}}</p>
+                    </div>
+            </div>
+            <div class="card col m-2">
+                    <div class="card-body">
+                        <h4 class="card-title">Total Confirmed</h4>
+                        <p class="card-text">{{globalsummary.TotalConfirmed}}</p>
+                    </div>
+            </div>
+            <div class="card col m-2">
+                    <div class="card-body">
+                        <h4 class="card-title">New Deaths</h4>
+                        <p class="card-text">{{globalsummary.NewDeaths}}</p>
+                    </div>
+            </div>
+            <div class="card col m-2">
+                    <div class="card-body">
+                        <h4 class="card-title">Total Deaths</h4>
+                        <p class="card-text">{{globalsummary.TotalDeaths}}</p>
+                    </div>
+            </div>
+            <div class="card col m-2">
+                    <div class="card-body">
+                        <h4 class="card-title">New Recovered</h4>
+                        <p class="card-text">{{globalsummary.NewRecovered}}</p>
+                    </div>
+            </div>
+            <div class="card col m-2">
+                    <div class="card-body">
+                        <h4 class="card-title">Total Recovered</h4>
+                        <p class="card-text">{{globalsummary.TotalRecovered}}</p>
+                    </div>
+            </div>
+
+                </div>
+        </div>
+
+        <hr>
+        <hr>
+        <h4 class ="alert alert-light border rounded">
+            Country Wise Summary
+        </h4>
+      <table class="table">
+                <thead>
+                    <tr>
+                        <th>Sno.</th>
+                        <th>Country</th>
+                        <th>Total Confirmed</th>
+                        <th>Total Deaths</th>
+                        <th>Total Recovered</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in countries %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{c.Country}}</td>
+                        <td>{{c.TotalConfirmed}}</td>
+                        <td>{{c.TotalDeaths}}</td>
+                        <td>{{c.TotalRecovered}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+</body>
+</html>
